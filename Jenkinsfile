@@ -20,7 +20,7 @@ pipeline {
 
                sh """
                 cd terraform-cma-application
-                terraform init
+                terraform init -reconfigure -backend-config="bucket=global-nexus" -backend-config key="global/cma/dev/terraform.tfstate"
                 """
             }
         }
